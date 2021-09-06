@@ -1,0 +1,71 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Peer Grader Guidance
+Please review the student expectations for peer review grading and peer review comments.  Overall, we ask that you score with accuracy. When grading your peers, you will not only learn how to improve your future homework submissions but you will also gain deeper understanding of the concepts in the assignments. When assigning scores, consider the responses to the questions given your understanding of the problem and using the solutions as a guide. Moreover, please give partial credit for a concerted effort, but also be thorough. **Add comments to your review, particularly when deducting points, to explain why the student missed the points.** Ensure your comments are specific to questions and the student responses in the assignment.
+
+
+# Background
+
+You have been contracted as a healthcare consulting company to understand the factors on which the pricing of health insurance depends. 
+
+## Data Description
+
+The data consists of a data frame with 1338 observations on the following 7 variables:
+
+1. price: Response variable ($)
+2. age: Quantitative variable
+3. sex: Qualitative variable
+4. bmi: Quantitative variable
+5. children: Quantitative variable
+6. smoker: Qualitative variable
+7. region: Qualitative variable
+
+## Instructions on reading the data
+
+To read the data in `R`, save the file in your working directory (make sure you have changed the directory if different from the R working directory) and read the data using the `R` function `read.csv()`
+
+```{r}
+insurance = read.csv(
+  "C:\\Users\\adri_\\Documents\\Gatech\\ISYE6414\\Homeworks\\2_Multiple_linear_regression\\insurance.csv", head = TRUE)
+```
+
+# Question 1: Exploratory Data Analysis [12 points]
+
+a. **3 pts** Create plots of the response, *price*, against three quantitative predictors *age*, *bmi*, and *children*. Describe the general trend (direction and form) of each plot. 
+```{r}
+
+price <- insurance[,7]   # price is the response variable
+age <- insurance[,1]   
+bmi <- insurance[,3]
+children <- insurance[,4]
+
+plot(age,price,
+     xlab="Age",
+     ylab="Price",
+     main="Price by Age",
+     col = "red",
+     pch=20)
+
+
+plot(bmi,price,
+     xlab="Body mass index",
+     ylab="Price",
+     main="Price by body mass index",
+     col = "green",
+     pch=20)
+
+plot(children,price,
+     xlab="Number of Children",
+     ylab="Price",
+     main="Price by number of children",
+     col = "purple",
+     pch=20)
+```
